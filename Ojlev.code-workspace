@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Ojlev",
+			"path": "."
+		},
+		{
+			"name": "img",
+			"path": "wedding-starter-template/img"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Ojlev"
+	}
+}

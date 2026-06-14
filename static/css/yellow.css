@@ -1,0 +1,42 @@
+/* pink color style */
+
+.preloader .loader i,
+.btn-1:hover,
+.event-section .event-item-inner span, 
+.story-content .story-item i,
+.story-content .story-text h3,
+.couple-section .social-links a i,
+.couple-section .couple i.fa-heart,
+.couple-section .couple h3,
+body.dark .header .navbar a.active,
+.header .navbar a.active,
+body.dark .header .navbar a:hover,
+.header .navbar a:hover {
+    color: #ff9801;
+} 
+
+.event-section .event-item-inner::before,
+.couple-section .social-links a i,
+.couple-section .couple img {
+    border-color: #ff9801;
+}
+
+.preloader .loader:before {
+    border-right-color: #ff9801;
+}
+
+.setting .s-toggle-btn,
+.btn-1,
+.rsvp-section,
+body.dark .witness-section .filter-btn.active,
+.witness-section .filter-btn.active,
+.event-section,
+.couple-section .social-links a:hover i,
+.gallery-section .gallery_tag.active {
+    background-color: #ff9801;
+}
+
+.event-section .event-item-inner img,
+.footer .footer-content .couple-name img {
+    filter: hue-rotate(45deg);
+}

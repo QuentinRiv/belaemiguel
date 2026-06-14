@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "couple": "Couple",
+    "our_story": "Our Story",
+    "the_day": "The Day",
+    "rsvp": "RSVP"
+  },
+  "home": {
+    "getting_married": "We're getting married!"
+  },
+  "couple": {
+    "title": "Happy couple",
+    "bride_name": "Amazing Edbela",
+    "bride_desc": "Best employee... of our heart",
+    "groom_name": "Miguel Angel",
+    "groom_desc": "Smart and elegant man"
+  },
+  "story": {
+    "title": "Our Love Story",
+    "first_meet_title": "First Meet",
+    "first_meet_date": "10 Jan 2020",
+    "first_meet_text": "They say opposites attract… and maybe they're right. We met at work: he was calm, easygoing and patient; I was stressed, overthinking everything and always running at full speed. Somehow, it worked from the very beginning. While I complicate things, he simplifies them. While I overthink, he reminds me to breathe. And somewhere in those differences, we found the perfect balance.",
+    "first_date_title": "First Date",
+    "first_date_date": "13 Mar 2021",
+    "first_date_text": "Almost 7 years later, we still choose each other every single day — through conversations, laughter, plans, little adventures and many sunsets together. We learned that love can also be found in calm moments, quiet company and the feeling of being exactly where you belong.",
+    "proposal_title": "Proposal",
+    "proposal_date": "16 Jun 2022",
+    "proposal_text": "And now, here we are, ready for the next chapter. 🤍"
+  },
+  "event": {
+    "title": "Come celebrate this moment",
+    "ceremony_title": "Ceremony",
+    "ceremony_date": "16 Jun 2022",
+    "ceremony_time": "5:00 - 7:00 PM",
+    "ceremony_text": "Write what is going to happen",
+    "engagement_title": "Engagement",
+    "engagement_date": "19 Sep 2023",
+    "engagement_time": "5:00 - 7:30 PM",
+    "engagement_text": "Write what is going to happen"
+  },
+  "form": {
+    "title": "Will you be there?",
+    "subtitle": "Let us know if you'll be joining us on that special day",
+    "name_label": "Your first name",
+    "name_placeholder": "First name",
+    "attending_label": "Will you attend?",
+    "yes": "Yes",
+    "no": "No",
+    "send": "Send",
+    "confirmation_yes": "Thank you! We're so glad you'll be joining us.",
+    "confirmation_no": "Thank you for letting us know. You'll be missed!"
+  },
+  "settings": {
+    "color": "Color",
+    "mode": "Mode",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "footer": {
+    "thank_you": "Thank you"
+  }
+}

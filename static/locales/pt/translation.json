@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Início",
+    "couple": "O Casal",
+    "our_story": "A Nossa História",
+    "the_day": "O Grande Dia",
+    "rsvp": "RSVP"
+  },
+  "home": {
+    "getting_married": "Vamos casar!"
+  },
+  "couple": {
+    "title": "Os noivos",
+    "bride_name": "Amazing Edbela",
+    "bride_desc": "Best employee... of our heart",
+    "groom_name": "Miguel Angel",
+    "groom_desc": "Smart and elegant man"
+  },
+  "story": {
+    "title": "A Nossa História de Amor",
+    "first_meet_title": "Primeiro Encontro",
+    "first_meet_date": "10 Jan 2020",
+    "first_meet_text": "Dizem que os opostos se atraem… e talvez tenham razão. Conhecemo-nos no trabalho: ele era calmo, descontraído e paciente; eu era stressada, a pensar demais em tudo e sempre a correr a toda a velocidade. De alguma forma, funcionou desde o início. Enquanto eu complico as coisas, ele simplifica-as. Enquanto eu penso demais, ele lembra-me de respirar. E em algum lugar nessas diferenças, encontrámos o equilíbrio perfeito.",
+    "first_date_title": "Primeiro Encontro a Sós",
+    "first_date_date": "13 Mar 2021",
+    "first_date_text": "Quase 7 anos depois, continuamos a escolher-nos todos os dias — através de conversas, risos, planos, pequenas aventuras e muitos pores do sol juntos. Aprendemos que o amor também se encontra em momentos calmos, na companhia silenciosa e na sensação de estar exatamente onde se pertence.",
+    "proposal_title": "O Pedido",
+    "proposal_date": "16 Jun 2022",
+    "proposal_text": "E agora, aqui estamos nós, prontos para o próximo capítulo. 🤍"
+  },
+  "event": {
+    "title": "Venham celebrar este momento",
+    "ceremony_title": "Cerimónia",
+    "ceremony_date": "16 Jun 2022",
+    "ceremony_time": "17:00 - 19:00",
+    "ceremony_text": "Descreva o que vai acontecer",
+    "engagement_title": "Noivado",
+    "engagement_date": "19 Set 2023",
+    "engagement_time": "17:00 - 19:30",
+    "engagement_text": "Descreva o que vai acontecer"
+  },
+  "form": {
+    "title": "Vai estar presente?",
+    "subtitle": "Diga-nos se vai estar connosco neste dia especial",
+    "name_label": "O seu primeiro nome",
+    "name_placeholder": "Primeiro nome",
+    "attending_label": "Vai estar presente?",
+    "yes": "Sim",
+    "no": "Não",
+    "send": "Enviar",
+    "confirmation_yes": "Obrigado! Estamos muito felizes por nos acompanhar.",
+    "confirmation_no": "Obrigado pela sua resposta. Vamos sentir a sua falta!"
+  },
+  "settings": {
+    "color": "Cor",
+    "mode": "Modo",
+    "light": "Claro",
+    "dark": "Escuro"
+  },
+  "footer": {
+    "thank_you": "Obrigado"
+  }
+}
