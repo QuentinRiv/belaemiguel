@@ -594,6 +594,14 @@ body {
 }
 
 
+.event-section .event-item-inner .event-place {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
 .event-section .event-item-inner span {
     display: block;
     font-weight: 500;
@@ -1169,6 +1177,7 @@ body.dark .footer .footer-content .couple-name h2,
 body.dark .rsvp-form .form .input-control,
 body.dark .witness-section .witness-item-inner h4,
 body.dark .witness-section .filter-btn.active,
+body.dark .event-section .event-item-inner .event-place,
 body.dark .event-section .event-item-inner h3,
 body.dark .section-title h2,
 body.dark .header .navbar a,

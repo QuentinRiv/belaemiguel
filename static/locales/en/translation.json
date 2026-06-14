@@ -30,14 +30,15 @@
   },
   "event": {
     "title": "Come celebrate this moment",
-    "ceremony_title": "Ceremony",
-    "ceremony_date": "16 Jun 2022",
-    "ceremony_time": "5:00 - 7:00 PM",
-    "ceremony_text": "Write what is going to happen",
-    "engagement_title": "Engagement",
-    "engagement_date": "19 Sep 2023",
-    "engagement_time": "5:00 - 7:30 PM",
-    "engagement_text": "Write what is going to happen"
+    "ceremony_title": "Religious Ceremony",
+    "ceremony_place": "Igreja de São Pedro",
+    "ceremony_date": "12 September 2026",
+    "ceremony_time": "At 12:00",
+    "ceremony_text": "Av. Manuel Simões Carrasqueira, 2715-311 Pêro Pinheiro",
+    "engagement_title": "Reception",
+    "engagement_place": "Quinta dos Lapiás",
+    "engagement_date": "12 September 2026",
+    "engagement_text": "Rua das Barruncheiras, Quinta dos Lapiás, Negrais, 2715-316 Lisboa"
   },
   "form": {
     "title": "Will you be there?",
