@@ -9,17 +9,18 @@ function getLocalePath() {
 }
 
 var SUPPORTED_LANGS = ['en', 'pt'];
-var DEFAULT_LANG = 'en';
+var DEFAULT_LANG = 'pt';
 
 function getSavedLang() {
   return localStorage.getItem('ojlev_lang');
 }
 
 function getInitialLang() {
+  // Si le visiteur a déjà choisi une langue, on la respecte ;
+  // sinon on affiche toujours le portugais par défaut.
   var saved = getSavedLang();
   if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
-  var browser = (navigator.language || navigator.userLanguage || DEFAULT_LANG).slice(0, 2);
-  return SUPPORTED_LANGS.indexOf(browser) !== -1 ? browser : DEFAULT_LANG;
+  return DEFAULT_LANG;
 }
 
 function applyTranslations(t) {

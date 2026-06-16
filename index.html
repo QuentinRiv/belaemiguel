@@ -56,7 +56,7 @@
             <div class="home-content">
               <p data-i18n="home.getting_married">We're getting married!</p>
               <h1>Bela &amp; Miguel</h1>
-              <span>7 Sept 2024</span>
+              <span>12.09.2026</span>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
             <div class="home-content">
               <p data-i18n="home.getting_married">We're getting married!</p>
               <h1>Bela &amp; Miguel</h1>
-              <span>7 Sept 2024</span>
+              <span>12.09.2026</span>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
             <div class="home-content">
               <p data-i18n="home.getting_married">We're getting married!</p>
               <h1>Bela &amp; Miguel</h1>
-              <span>7 Sept 2024</span>
+              <span data-i18n="home.wedding_date">12.09.2026</span>
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@
                 <div class="story-text">
                   <h3 data-i18n="story.first_meet_title">First Meet</h3>
                   <span data-i18n="story.first_meet_date">10 Jan 2020</span>
-                  <p data-i18n="story.first_meet_text">They say opposites attract… and maybe they're right. We met at work: he was calm, easygoing and patient; I was stressed, overthinking everything and always running at full speed. Somehow, it worked from the very beginning. While I complicate things, he simplifies them. While I overthink, he reminds me to breathe. And somewhere in those differences, we found the perfect balance.</p>
+                  <p data-i18n="story.first_meet_text">They say opposites attract… and maybe they're right. We met at work: he was calm, easygoing and patient; she was stressed, overthinking everything and always running at full speed. Somehow, it worked from the very beginning. While she complicates things, he simplifies them. While she overthinks, he reminds her to breathe. And somewhere in those differences, we found the perfect balance. Almost 7 years later, we still choose each other every single day — through conversations, laughter, plans, little adventures and many sunsets together. We learned that love can also be found in calm moments, quiet company and the feeling of being exactly where you belong. And now, here we are, ready for the next chapter. 🤍</p>
                 </div>
                 <div class="story-img">
                   <img src="static/img/story/story-0.jpg" alt="First Meet" loading="lazy" />
@@ -166,21 +166,9 @@
               <div class="story-item item">
                 <i class="fas fa-heart"></i>
                 <div class="story-text">
-                  <h3 data-i18n="story.first_date_title">First Date</h3>
-                  <span data-i18n="story.first_date_date">13 Mar 2021</span>
-                  <p data-i18n="story.first_date_text">Almost 7 years later, we still choose each other every single day — through conversations, laughter, plans, little adventures and many sunsets together. We learned that love can also be found in calm moments, quiet company and the feeling of being exactly where you belong.</p>
-                </div>
-                <div class="story-img">
-                  <img src="static/img/story/story-1.jpg" alt="First Date" loading="lazy" />
-                </div>
-              </div>
-
-              <div class="story-item item">
-                <i class="fas fa-heart"></i>
-                <div class="story-text">
                   <h3 data-i18n="story.proposal_title">Proposal</h3>
                   <span data-i18n="story.proposal_date">16 Jun 2022</span>
-                  <p data-i18n="story.proposal_text">And now, here we are, ready for the next chapter. 🤍</p>
+                  <p data-i18n="story.proposal_text"></p>
                 </div>
                 <div class="story-img">
                   <img src="static/img/story/story-2.jpg" alt="Proposal" loading="lazy" />
@@ -240,14 +228,25 @@
           <div class="rsvp-form-wrapper">
             <form id="rsvp-form" class="rsvp-card" novalidate>
               <div class="rsvp-field">
-                <label for="rsvp-name" data-i18n="form.name_label">Your first name</label>
+                <label for="rsvp-firstname" data-i18n="form.name_label">Your first name</label>
                 <input
                   type="text"
-                  id="rsvp-name"
+                  id="rsvp-firstname"
                   class="rsvp-input"
                   data-i18n-placeholder="form.name_placeholder"
                   placeholder="First name"
                   autocomplete="given-name"
+                />
+              </div>
+              <div class="rsvp-field">
+                <label for="rsvp-lastname" data-i18n="form.name_label">Your last name</label>
+                <input
+                  type="text"
+                  id="rsvp-lastname"
+                  class="rsvp-input"
+                  data-i18n-placeholder="form.name_placeholder"
+                  placeholder="Last name"
+                  autocomplete="family-name"
                 />
               </div>
               <div class="rsvp-field">
