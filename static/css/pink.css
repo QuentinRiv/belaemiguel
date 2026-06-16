@@ -12,18 +12,18 @@ body.dark .header .navbar a.active,
 .header .navbar a.active,
 body.dark .header .navbar a:hover,
 .header .navbar a:hover {
-    color: #b951ce;
+    color: #CC7EC9;
 } 
 
 .btn-1,
 .event-section .event-item-inner::before,
 .couple-section .social-links a i,
 .couple-section .couple img {
-    border-color: #b951ce;
+    border-color: #CC7EC9;
 }
 
 .preloader .loader:before {
-    border-right: 3px solid #b951ce;
+    border-right: 3px solid #CC7EC9;
 }
 
 .setting .s-toggle-btn,
@@ -34,5 +34,5 @@ body.dark .witness-section .filter-btn.active,
 .event-section,
 .couple-section .social-links a:hover i,
 .gallery-section .gallery_tag.active {
-    background-color: #b951ce;
+    background-color: #CC7EC9;
 }
