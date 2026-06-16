@@ -43,8 +43,10 @@
   "form": {
     "title": "Will you be there?",
     "subtitle": "Let us know if you'll be joining us on that special day",
-    "name_label": "Your first name",
-    "name_placeholder": "First name",
+    "firstname_label": "Your first name",
+    "firstname_placeholder": "First name",
+    "lastname_label": "Your last name",
+    "lastname_placeholder": "Last name",
     "attending_label": "Will you attend?",
     "yes": "Yes",
     "no": "No",

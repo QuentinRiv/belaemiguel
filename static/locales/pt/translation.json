@@ -43,8 +43,10 @@
   "form": {
     "title": "Vai estar presente?",
     "subtitle": "Diga-nos se vai estar connosco neste dia especial",
-    "name_label": "O seu primeiro nome",
-    "name_placeholder": "Primeiro nome",
+    "firstname_label": "O seu primeiro nome",
+    "firstname_placeholder": "Primeiro nome",
+    "lastname_label": "O seu apelido",
+    "lastname_placeholder": "Apelido",
     "attending_label": "Vai estar presente?",
     "yes": "Sim",
     "no": "Não",
