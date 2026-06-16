@@ -11,15 +11,9 @@ function getLocalePath() {
 var SUPPORTED_LANGS = ['en', 'pt'];
 var DEFAULT_LANG = 'pt';
 
-function getSavedLang() {
-  return localStorage.getItem('ojlev_lang');
-}
-
 function getInitialLang() {
-  // Si le visiteur a déjà choisi une langue, on la respecte ;
-  // sinon on affiche toujours le portugais par défaut.
-  var saved = getSavedLang();
-  if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
+  // On affiche toujours le portugais par défaut au chargement / rafraîchissement,
+  // même si le visiteur avait choisi une autre langue lors d'une session précédente.
   return DEFAULT_LANG;
 }
 
@@ -70,7 +64,6 @@ function loadLang(lang, callback) {
 function setLang(lang) {
   if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = DEFAULT_LANG;
   window._currentLang = lang;
-  localStorage.setItem('ojlev_lang', lang);
   loadLang(lang, function (translations) {
     window._translations = translations;
     applyTranslations(translations);
