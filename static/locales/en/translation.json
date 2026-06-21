@@ -43,6 +43,8 @@
   "form": {
     "title": "Will you be there?",
     "subtitle": "Let us know if you'll be joining us on that special day",
+    "intro_1": "We are so happy to share this special day with you!",
+    "intro_2": "Kindly confirm your attendance by 15 August 2026. If you will be attending with your partner, please remember to include them in your RSVP, as well as any children who will be joining you, indicating each child's age.",
     "firstname_label": "Your first name",
     "firstname_placeholder": "First name",
     "lastname_label": "Your last name",

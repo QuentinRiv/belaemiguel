@@ -43,6 +43,8 @@
   "form": {
     "title": "Vai estar presente?",
     "subtitle": "Diga-nos se vai estar connosco neste dia especial",
+    "intro_1": "Estamos muito felizes por partilhar este dia convosco!",
+    "intro_2": "Pedimos, por favor, que confirme a sua presença até 15 de Agosto de 2026. Se vier acompanhado(a), não se esqueça de incluir o(a) seu(sua) acompanhante e as crianças que estarão presentes, indicando a idade de cada uma.",
     "firstname_label": "O seu primeiro nome",
     "firstname_placeholder": "Primeiro nome",
     "lastname_label": "O seu apelido",

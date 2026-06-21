@@ -55,26 +55,79 @@ $(document).ready(function () {
   $("#rsvp-form").on("submit", function (e) {
     e.preventDefault();
 
-    var name = $("#rsvp-name").val().trim();
+    var firstName = $("#rsvp-firstname").val().trim();
+    var lastName = $("#rsvp-lastname").val().trim();
     var attending = $(".rsvp-toggle-btn.active").attr("data-value") === "yes";
 
-    if (!name) {
-      $("#rsvp-name").focus();
+    if (!firstName) {
+      $("#rsvp-firstname").focus();
       return;
     }
 
-    sendRSVP(name, attending);
+    var $submit = $(this).find(".rsvp-submit");
+    $submit.prop("disabled", true);
 
-    var msgKey = attending ? "form.confirmation_yes" : "form.confirmation_no";
-    $("#rsvp-confirmation-text").text(t(msgKey));
-    $("#rsvp-form").addClass("hidden").css("display", "none");
-    $("#rsvp-confirmation").removeClass("hidden");
+    sendRSVP(firstName, lastName, attending).always(function () {
+      $submit.prop("disabled", false);
+
+      var msgKey = attending ? "form.confirmation_yes" : "form.confirmation_no";
+      $("#rsvp-confirmation-text").text(t(msgKey));
+      $("#rsvp-form").addClass("hidden").css("display", "none");
+      $("#rsvp-confirmation").removeClass("hidden");
+    });
   });
 });
 
-function sendRSVP(name, attending) {
-  // TODO: brancher sur Telegram ou autre backend
-  console.log("RSVP:", name, attending ? "présent" : "absent");
+// ===== Telegram notification =====
+//
+// Note : ce site est 100% statique (GitHub Pages), il n'y a pas de serveur pour
+// cacher le token. Les deux valeurs ci-dessous seront donc visibles dans le code
+// source de la page. C'est un choix assumé pour une page de mariage privée
+// (au pire, du spam dans ton propre chat). Pas de .env possible ici.
+//
+// Configuration (une seule fois) :
+//   1. Sur Telegram, parle à @BotFather, envoie /newbot et suis les étapes.
+//      Il te répond avec un token du style 123456789:AAExxxxxxxxxxxxxxxxxxxxxxx
+//   2. Envoie un message à ton nouveau bot (pour qu'il ait le droit de t'écrire),
+//      ou ajoute-le à un groupe.
+//   3. Récupère ton chat id : ouvre dans un navigateur
+//      https://api.telegram.org/bot<TOKEN>/getUpdates après avoir écrit au bot,
+//      et lis result[].message.chat.id.
+//   4. Colle les deux valeurs ci-dessous.
+var TELEGRAM_BOT_TOKEN = ""; // ex : "123456789:AAE..."
+var TELEGRAM_CHAT_ID = ""; // ex : "987654321"
+
+function sendRSVP(firstName, lastName, attending) {
+  var fullName = (firstName + " " + lastName).trim();
+  var status = attending ? "✅ présent(e)" : "❌ absent(e)";
+  var text =
+    "💌 Nouveau RSVP\n" +
+    "Nom : " + fullName + "\n" +
+    "Réponse : " + status;
+
+  console.log("RSVP:", fullName, attending ? "présent" : "absent");
+
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.warn(
+      "Telegram non configuré : renseigne TELEGRAM_BOT_TOKEN et TELEGRAM_CHAT_ID dans main.js."
+    );
+    return $.Deferred().resolve().promise();
+  }
+
+  return $.ajax({
+    url: "https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/sendMessage",
+    method: "POST",
+    data: {
+      chat_id: TELEGRAM_CHAT_ID,
+      text: text,
+    },
+  })
+    .done(function () {
+      console.log("RSVP envoyé sur Telegram.");
+    })
+    .fail(function (xhr) {
+      console.error("Échec de l'envoi Telegram :", xhr.status, xhr.responseText);
+    });
 }
 // ===== RSVP form end =====
 
