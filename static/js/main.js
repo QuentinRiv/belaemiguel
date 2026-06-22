@@ -95,7 +95,7 @@ $(document).ready(function () {
 //      et lis result[].message.chat.id.
 //   4. Colle les deux valeurs ci-dessous.
 var TELEGRAM_BOT_TOKEN = "8944876278:AAFc8BDB3SzzcgBAcDsy4VFaGri_v1A14a0"; // ex : "123456789:AAE..."
-var TELEGRAM_CHAT_ID = ""; // ex : "987654321"
+var TELEGRAM_CHAT_ID = "6715849629"; // ex : "987654321"
 
 function sendRSVP(firstName, lastName, attending) {
   var fullName = (firstName + " " + lastName).trim();
