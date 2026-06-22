@@ -99,13 +99,13 @@ var TELEGRAM_CHAT_ID = "6715849629"; // ex : "987654321"
 
 function sendRSVP(firstName, lastName, attending) {
   var fullName = (firstName + " " + lastName).trim();
-  var status = attending ? "✅ présent(e)" : "❌ absent(e)";
+  var status = attending ? "✅ will be present" : "❌ won't be able to come";
   var text =
-    "💌 Nouveau RSVP\n" +
-    "Nom : " + fullName + "\n" +
-    "Réponse : " + status;
+    "💌 New RSVP\n" +
+    "Name : " + fullName + "\n" +
+    "Answer : " + status;
 
-  console.log("RSVP:", fullName, attending ? "présent" : "absent");
+  console.log("RSVP:", fullName, attending ? "present" : "absent");
 
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.warn(
