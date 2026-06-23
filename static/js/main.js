@@ -90,13 +90,22 @@ $(document).ready(function () {
 
     $container.empty();
     for (var i = 0; i < count; i++) {
-      var label = t("form.kid_age_label").replace("{n}", i + 1);
-      var $row = $(
+      // Fall back gracefully if translations aren't loaded yet (t() returns the key)
+      var labelTpl = t("form.kid_age_label");
+      if (labelTpl === "form.kid_age_label") labelTpl = "Child {n}";
+      var label = labelTpl.replace("{n}", i + 1);
+
+      var placeholder = t("form.kid_age_placeholder");
+      if (placeholder === "form.kid_age_placeholder") placeholder = "Age";
+      var $row = $('<div class="rsvp-kid-row"></div>');
+      $('<span class="rsvp-kid-label"></span>').text(label).appendTo($row);
+      var $input = $(
         '<input type="number" class="rsvp-input rsvp-kid-age" min="0" max="17" step="1" inputmode="numeric" />'
       )
-        .attr("placeholder", label)
-        .attr("aria-label", label);
-      if (existing[i] !== undefined) $row.val(existing[i]);
+        .attr("aria-label", label)
+        .attr("placeholder", placeholder);
+      if (existing[i] !== undefined) $input.val(existing[i]);
+      $row.append($input);
       $container.append($row);
     }
   }

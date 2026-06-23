@@ -26,6 +26,7 @@ body.dark .header .navbar a:hover,
 }
 
 .setting .s-toggle-btn,
+.lang-btn.active,
 .btn-1,
 .rsvp-section,
 body.dark .witness-section .filter-btn.active,
