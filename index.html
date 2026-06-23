@@ -266,6 +266,36 @@
                   </button>
                 </div>
               </div>
+              <div class="rsvp-field" id="rsvp-kids-toggle-field">
+                <p class="rsvp-toggle-label" data-i18n="form.kids_label">Bringing children?</p>
+                <div class="rsvp-toggle-group rsvp-kids-toggle-group">
+                  <button type="button" class="rsvp-kids-btn" data-value="yes">
+                    <i class="fas fa-check"></i>
+                    <span data-i18n="form.yes">Yes</span>
+                  </button>
+                  <button type="button" class="rsvp-kids-btn active" data-value="no">
+                    <i class="fas fa-times"></i>
+                    <span data-i18n="form.no">No</span>
+                  </button>
+                </div>
+              </div>
+              <div class="rsvp-field hidden" id="rsvp-kids-count-field">
+                <label for="rsvp-kids-count" data-i18n="form.kids_count_label">How many children?</label>
+                <input
+                  type="number"
+                  id="rsvp-kids-count"
+                  class="rsvp-input"
+                  min="1"
+                  max="10"
+                  step="1"
+                  inputmode="numeric"
+                  value="1"
+                />
+              </div>
+              <div class="rsvp-field hidden" id="rsvp-kids-ages-field">
+                <label data-i18n="form.kids_ages_label">Age of each child</label>
+                <div id="rsvp-kids-ages" class="rsvp-kids-ages"></div>
+              </div>
               <button type="submit" class="rsvp-submit btn-1" data-i18n="form.send">Send</button>
             </form>
             <div id="rsvp-confirmation" class="rsvp-confirmation hidden">

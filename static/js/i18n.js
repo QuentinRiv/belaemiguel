@@ -39,6 +39,8 @@ function applyTranslations(t) {
   });
   // Update html lang attribute
   document.documentElement.setAttribute('lang', window._currentLang);
+  // Let other scripts re-render dynamically generated, translatable content
+  document.dispatchEvent(new CustomEvent('i18n:applied'));
 }
 
 function loadLang(lang, callback) {

@@ -957,6 +957,44 @@ body {
     color: #ffffff;
 }
 
+.rsvp-kids-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #cccccc;
+    background-color: transparent;
+    color: #555555;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.rsvp-kids-btn i {
+    font-size: 14px;
+}
+
+.rsvp-kids-btn[data-value="yes"].active {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    color: #ffffff;
+}
+
+.rsvp-kids-btn[data-value="no"].active {
+    background-color: #e57373;
+    border-color: #e57373;
+    color: #ffffff;
+}
+
+.rsvp-kids-ages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .rsvp-submit {
     align-self: center;
     min-width: 160px;
@@ -1013,7 +1051,8 @@ body.dark .rsvp-input {
     color: #ffffff;
 }
 
-body.dark .rsvp-toggle-btn {
+body.dark .rsvp-toggle-btn,
+body.dark .rsvp-kids-btn {
     border-color: #444444;
     color: #aaaaaa;
 }
