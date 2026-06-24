@@ -1013,7 +1013,8 @@ body.dark .lang-btn:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-.rsvp-kids-btn {
+.rsvp-kids-btn,
+.rsvp-plusone-btn {
     flex: 1;
     padding: 12px;
     border: 2px solid #cccccc;
@@ -1029,17 +1030,20 @@ body.dark .lang-btn:hover {
     transition: all 0.3s ease;
 }
 
-.rsvp-kids-btn i {
+.rsvp-kids-btn i,
+.rsvp-plusone-btn i {
     font-size: 14px;
 }
 
-.rsvp-kids-btn[data-value="yes"].active {
+.rsvp-kids-btn[data-value="yes"].active,
+.rsvp-plusone-btn[data-value="yes"].active {
     background-color: #4caf50;
     border-color: #4caf50;
     color: #ffffff;
 }
 
-.rsvp-kids-btn[data-value="no"].active {
+.rsvp-kids-btn[data-value="no"].active,
+.rsvp-plusone-btn[data-value="no"].active {
     background-color: #e57373;
     border-color: #e57373;
     color: #ffffff;
@@ -1053,21 +1057,31 @@ body.dark .lang-btn:hover {
 
 .rsvp-kid-row {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rsvp-kid-fields {
+    display: flex;
     gap: 12px;
+    flex-wrap: wrap;
+}
+
+.rsvp-kid-fields .rsvp-kid-firstname,
+.rsvp-kid-fields .rsvp-kid-lastname {
+    flex: 1 1 120px;
+}
+
+.rsvp-kid-fields .rsvp-kid-age {
+    flex: 0 0 80px;
 }
 
 .rsvp-kid-label {
-    flex: 0 0 90px;
     font-size: 14px;
     font-weight: 500;
     color: #555555;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-.rsvp-kid-row .rsvp-kid-age {
-    flex: 1;
 }
 
 body.dark .rsvp-kid-label {
@@ -1097,6 +1111,7 @@ body.dark .rsvp-kid-label {
     gap: 20px;
 }
 
+#rsvp-form .hidden,
 .rsvp-confirmation.hidden {
     display: none;
 }
@@ -1131,7 +1146,8 @@ body.dark .rsvp-input {
 }
 
 body.dark .rsvp-toggle-btn,
-body.dark .rsvp-kids-btn {
+body.dark .rsvp-kids-btn,
+body.dark .rsvp-plusone-btn {
     border-color: #444444;
     color: #aaaaaa;
 }

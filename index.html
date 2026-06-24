@@ -271,6 +271,41 @@
                   </button>
                 </div>
               </div>
+              <div class="rsvp-field" id="rsvp-plusone-toggle-field">
+                <p class="rsvp-toggle-label" data-i18n="form.plusone_label">Bringing a +1?</p>
+                <div class="rsvp-toggle-group rsvp-plusone-toggle-group">
+                  <button type="button" class="rsvp-plusone-btn" data-value="yes">
+                    <i class="fas fa-check"></i>
+                    <span data-i18n="form.yes">Yes</span>
+                  </button>
+                  <button type="button" class="rsvp-plusone-btn active" data-value="no">
+                    <i class="fas fa-times"></i>
+                    <span data-i18n="form.no">No</span>
+                  </button>
+                </div>
+              </div>
+              <div class="rsvp-field hidden" id="rsvp-plusone-firstname-field">
+                <label for="rsvp-plusone-firstname" data-i18n="form.plusone_firstname_label">+1 first name</label>
+                <input
+                  type="text"
+                  id="rsvp-plusone-firstname"
+                  class="rsvp-input"
+                  data-i18n-placeholder="form.firstname_placeholder"
+                  placeholder="First name"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="rsvp-field hidden" id="rsvp-plusone-lastname-field">
+                <label for="rsvp-plusone-lastname" data-i18n="form.plusone_lastname_label">+1 last name</label>
+                <input
+                  type="text"
+                  id="rsvp-plusone-lastname"
+                  class="rsvp-input"
+                  data-i18n-placeholder="form.lastname_placeholder"
+                  placeholder="Last name"
+                  autocomplete="off"
+                />
+              </div>
               <div class="rsvp-field" id="rsvp-kids-toggle-field">
                 <p class="rsvp-toggle-label" data-i18n="form.kids_label">Bringing children?</p>
                 <div class="rsvp-toggle-group rsvp-kids-toggle-group">

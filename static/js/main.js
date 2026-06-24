@@ -51,6 +51,21 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 
+  // Toggle "bringing a +1?" yes/no
+  $(document).on("click", ".rsvp-plusone-btn", function () {
+    $(".rsvp-plusone-btn").removeClass("active");
+    $(this).addClass("active");
+
+    var bringingPlusOne = $(this).attr("data-value") === "yes";
+    $("#rsvp-plusone-firstname-field").toggleClass("hidden", !bringingPlusOne);
+    $("#rsvp-plusone-lastname-field").toggleClass("hidden", !bringingPlusOne);
+
+    if (!bringingPlusOne) {
+      $("#rsvp-plusone-firstname").val("");
+      $("#rsvp-plusone-lastname").val("");
+    }
+  });
+
   // Toggle "bringing children?" yes/no
   $(document).on("click", ".rsvp-kids-btn", function () {
     $(".rsvp-kids-btn").removeClass("active");
@@ -84,28 +99,55 @@ $(document).ready(function () {
 
     var $container = $("#rsvp-kids-ages");
     var existing = {};
-    $container.find(".rsvp-kid-age").each(function (i) {
-      existing[i] = $(this).val();
+    $container.find(".rsvp-kid-row").each(function (i) {
+      existing[i] = {
+        firstName: $(this).find(".rsvp-kid-firstname").val(),
+        lastName: $(this).find(".rsvp-kid-lastname").val(),
+        age: $(this).find(".rsvp-kid-age").val(),
+      };
     });
+
+    function tr(key, fallback) {
+      var val = t(key);
+      return val === key ? fallback : val;
+    }
 
     $container.empty();
     for (var i = 0; i < count; i++) {
       // Fall back gracefully if translations aren't loaded yet (t() returns the key)
-      var labelTpl = t("form.kid_age_label");
-      if (labelTpl === "form.kid_age_label") labelTpl = "Child {n}";
-      var label = labelTpl.replace("{n}", i + 1);
+      var label = tr("form.kid_age_label", "Child {n}").replace("{n}", i + 1);
+      var firstPh = tr("form.firstname_placeholder", "First name");
+      var lastPh = tr("form.lastname_placeholder", "Last name");
+      var agePh = tr("form.kid_age_placeholder", "Age");
 
-      var placeholder = t("form.kid_age_placeholder");
-      if (placeholder === "form.kid_age_placeholder") placeholder = "Age";
       var $row = $('<div class="rsvp-kid-row"></div>');
       $('<span class="rsvp-kid-label"></span>').text(label).appendTo($row);
-      var $input = $(
+
+      var $fields = $('<div class="rsvp-kid-fields"></div>');
+      var $first = $(
+        '<input type="text" class="rsvp-input rsvp-kid-firstname" autocomplete="off" />'
+      )
+        .attr("aria-label", label + " - " + firstPh)
+        .attr("placeholder", firstPh);
+      var $last = $(
+        '<input type="text" class="rsvp-input rsvp-kid-lastname" autocomplete="off" />'
+      )
+        .attr("aria-label", label + " - " + lastPh)
+        .attr("placeholder", lastPh);
+      var $age = $(
         '<input type="number" class="rsvp-input rsvp-kid-age" min="0" max="17" step="1" inputmode="numeric" />'
       )
-        .attr("aria-label", label)
-        .attr("placeholder", placeholder);
-      if (existing[i] !== undefined) $input.val(existing[i]);
-      $row.append($input);
+        .attr("aria-label", label + " - " + agePh)
+        .attr("placeholder", agePh);
+
+      if (existing[i]) {
+        if (existing[i].firstName !== undefined) $first.val(existing[i].firstName);
+        if (existing[i].lastName !== undefined) $last.val(existing[i].lastName);
+        if (existing[i].age !== undefined) $age.val(existing[i].age);
+      }
+
+      $fields.append($first, $last, $age);
+      $row.append($fields);
       $container.append($row);
     }
   }
@@ -117,14 +159,27 @@ $(document).ready(function () {
     var firstName = $("#rsvp-firstname").val().trim();
     var lastName = $("#rsvp-lastname").val().trim();
     var attending = $(".rsvp-toggle-btn.active").attr("data-value") === "yes";
+    var bringingPlusOne =
+      $(".rsvp-plusone-btn.active").attr("data-value") === "yes";
+    var plusOne = null;
+    if (bringingPlusOne) {
+      plusOne = {
+        firstName: $("#rsvp-plusone-firstname").val().trim(),
+        lastName: $("#rsvp-plusone-lastname").val().trim(),
+      };
+    }
     var bringingKids =
       $(".rsvp-kids-btn.active").attr("data-value") === "yes";
 
-    var kidsAges = [];
+    var kids = [];
     if (bringingKids) {
-      $("#rsvp-kids-ages .rsvp-kid-age").each(function () {
-        var age = $(this).val().trim();
-        if (age !== "") kidsAges.push(age);
+      $("#rsvp-kids-ages .rsvp-kid-row").each(function () {
+        var kFirst = $(this).find(".rsvp-kid-firstname").val().trim();
+        var kLast = $(this).find(".rsvp-kid-lastname").val().trim();
+        var kAge = $(this).find(".rsvp-kid-age").val().trim();
+        if (kFirst !== "" || kLast !== "" || kAge !== "") {
+          kids.push({ firstName: kFirst, lastName: kLast, age: kAge });
+        }
       });
     }
 
@@ -133,10 +188,15 @@ $(document).ready(function () {
       return;
     }
 
+    if (bringingPlusOne && !plusOne.firstName) {
+      $("#rsvp-plusone-firstname").focus();
+      return;
+    }
+
     var $submit = $(this).find(".rsvp-submit");
     $submit.prop("disabled", true);
 
-    sendRSVP(firstName, lastName, attending, kidsAges).always(function () {
+    sendRSVP(firstName, lastName, attending, kids, plusOne).always(function () {
       $submit.prop("disabled", false);
 
       var msgKey = attending ? "form.confirmation_yes" : "form.confirmation_no";
@@ -166,7 +226,7 @@ $(document).ready(function () {
 var TELEGRAM_BOT_TOKEN = "8944876278:AAFc8BDB3SzzcgBAcDsy4VFaGri_v1A14a0"; // ex : "123456789:AAE..."
 var TELEGRAM_CHAT_ID = "6715849629"; // ex : "987654321"
 
-function sendRSVP(firstName, lastName, attending, kidsAges) {
+function sendRSVP(firstName, lastName, attending, kids, plusOne) {
   var fullName = (firstName + " " + lastName).trim();
   var status = attending ? "✅ will be present" : "❌ won't be able to come";
   var text =
@@ -174,13 +234,21 @@ function sendRSVP(firstName, lastName, attending, kidsAges) {
     "Name : " + fullName + "\n" +
     "Answer : " + status;
 
-  if (kidsAges && kidsAges.length) {
-    text +=
-      "\nChildren : " + kidsAges.length +
-      " (ages : " + kidsAges.join(", ") + ")";
+  if (plusOne && plusOne.firstName) {
+    var plusOneName = (plusOne.firstName + " " + plusOne.lastName).trim();
+    text += "\n+1 : " + plusOneName;
   }
 
-  console.log("RSVP:", fullName, attending ? "present" : "absent", "kids:", kidsAges);
+  if (kids && kids.length) {
+    text += "\nChildren : " + kids.length;
+    kids.forEach(function (kid) {
+      var kidName = (kid.firstName + " " + kid.lastName).trim();
+      if (!kidName) kidName = "(no name)";
+      text += "\n  • " + kidName + (kid.age !== "" ? " (" + kid.age + ")" : "");
+    });
+  }
+
+  console.log("RSVP:", fullName, attending ? "present" : "absent", "+1:", plusOne, "kids:", kids);
 
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.warn(
